@@ -381,28 +381,6 @@ Data Structures,https://drive.google.com/...,2,1
 
 ---
 
-## 🚨 Troubleshooting
-
-### Backend Issues
-
-| Problem | Solution |
-|---------|----------|
-| CSV file not found | Update MASTER_PATH in main.py |
-| Groq API error | Check API key in .env |
-| Port 8000 in use | `lsof -i :8000` (Linux/Mac) or change port |
-| ChromaDB error | Delete chroma_db folder and restart |
-
-### Frontend Issues
-
-| Problem | Solution |
-|---------|----------|
-| Can't connect to backend | Ensure backend is running on localhost:8000 |
-| Voice not working | Check browser permissions & supported browser |
-| PDF not loading | Verify Google Drive URL format |
-| Language not changing | Refresh page after toggle |
-
----
-
 ## 📈 Performance Metrics
 
 - **Backend Response Time:** < 500ms (with Groq optimization)
@@ -447,7 +425,7 @@ Data Structures,https://drive.google.com/...,2,1
 
 ## 📧 Contact
 
-**Developer:** Abrar ul Haq  
+**Developer:** Tech Phantoms  
 **GitHub:** [@Abrarulhaq7865](https://github.com/Abrarulhaq7865)  
 **Institution:** Gates Institute of Technology
 
