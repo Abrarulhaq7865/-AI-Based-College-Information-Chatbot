@@ -16,16 +16,33 @@ export default function AdminLogin() {
     setIsLoading(true);
     setError("");
 
-    // Simulate a brief authentication delay for realism
-    setTimeout(() => {
-      // Logic: Simple Hardcoded Auth for Hackathon Demo
-      if (username === "admin" && password === "gates2026") {
+    // Authenticate against backend API (secure approach)
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Store token and redirect
+        localStorage.setItem("adminToken", data.token);
         router.push("/admin");
       } else {
-        setError("Invalid credentials. Please contact the System Administrator.");
+        setError(data.message || "Invalid credentials. Please contact the System Administrator.");
         setIsLoading(false);
       }
-    }, 1500);
+    } catch (err) {
+      setError("Authentication service unavailable. Please try again later.");
+      setIsLoading(false);
+    }
   };
 
   return (
